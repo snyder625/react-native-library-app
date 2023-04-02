@@ -5,21 +5,21 @@ import {
   View,
 } from "react-native";
 
-function Tabs() {
+function Tabs({rating, pages, status}) {
   return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <View style={styles.section}>
             <Text style={styles.title}>RATING</Text>
-            <Text style={styles.subTitle}>4.46</Text>
+            <Text style={styles.subTitle}>{rating}</Text>
           </View>
           <View style={[styles.section, styles.border]}>
             <Text style={styles.title}>PAGES</Text>
-            <Text style={styles.subTitle}>768</Text>
+            <Text style={styles.subTitle}>{pages}</Text>
           </View>
           <View style={styles.section}>
             <Text style={styles.title}>STATUS</Text>
-            <Text style={styles.subTitle}>Complete</Text>
+            <Text style={styles.subTitle}>{status}</Text>
           </View>
         </View>
       </View>

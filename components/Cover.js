@@ -1,38 +1,27 @@
 import React from "react";
-import {
-  Image,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions
-} from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, View, Dimensions, TouchableOpacity } from "react-native";
 
 const { height } = Dimensions.get('window');
 
-function Cover() {
+function Cover({cover, name, author}) {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={{
-          uri:
-            "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1650467260l/60633524.jpg"
-        }}
+        source={{ uri: cover }}
         resizeMode="cover"
         style={styles.backgroundImage}
         blurRadius={40}
       >
+        <TouchableOpacity style={styles.backBtn}>
+        <Image source={require('../assets/icons/left.png')} style={{width: '100%', height: '100%'}} />
+        </TouchableOpacity>
         <View style={ styles.wrapper }>
-          <Image
-            source={{
-              uri:
-                "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1650467260l/60633524.jpg"
-            }}
+          <Image source={{ uri: cover }}
             style={{ width: 150, height: 200, borderRadius: 6 }}
           />
           <View style={styles.textContainer}>
-            <Text style={styles.title}>The Wizard of Oz</Text>
-            <Text style={styles.subTitle}>by Ben Dunk</Text>
+            <Text style={styles.title}>{name}</Text>
+            <Text style={styles.subTitle}>by {author}</Text>
           </View>
         </View>
       </ImageBackground>
@@ -50,13 +39,21 @@ const styles = StyleSheet.create({
   backgroundImage: {
     height: height / 2
   },
+  backBtn: {
+    height: 25,
+    width: 35,
+    top: 15,
+    left: 15,
+    position: 'absolute'
+  },
   textContainer: {
     alignItems: "center", 
     paddingTop: 8
   },
   title: {
     fontSize: 20,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: '#C70039'
   },
   subTitle: {
     color: '#eee'

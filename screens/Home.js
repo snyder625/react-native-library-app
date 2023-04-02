@@ -25,9 +25,9 @@ const Home = () => {
       </View>
       {/* </View> */}
       {/* <Head /> */}
-      <BooksList title="Horror" BookData={BookData} />
-      <BooksList title="Horror" BookData={BookData} />
-      <BooksList title="Horror" BookData={BookData} />
+      <BooksList title="Completed" BookData={BookData} />
+      <BooksList title="Reading" BookData={BookData} />
+      <BooksList title="Wishlist" BookData={BookData} />
       </ScrollView>
     </SafeAreaView>
   )

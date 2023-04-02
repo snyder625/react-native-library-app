@@ -1,7 +1,6 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 import BookData from '../Data'
-import { useRoute } from '@react-navigation/native'
 
 import Cover from '../components/Cover'
 import Tabs from '../components/Tabs'
@@ -9,17 +8,19 @@ import AuthorDemo from '../components/AuthorDemo'
 import BooksList from '../components/BooksList'
 import { ScrollView } from 'react-native'
 
-const BookDetail = () => {
+const BookDetail = ({route}) => {
 
-  const route = useRoute()
+  const {id} = route.params;
+  const {name, cover, author, authorDescription, authorImage, description, rating, pages, status} = BookData[id];
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView>
-        <Cover />
-        <Tabs />
-        <AuthorDemo />
+        <Cover cover={cover} name={name} author={author} />
+        <Tabs rating={rating} pages={pages} status={status}/>
+        <AuthorDemo author={author} authorDescription={authorDescription} authorImage={authorImage} />
         <View style={{padding: 16, paddingTop: 10, backgroundColor: '#eee'}}>
-          <Text style={{fontSize: 16}}>The Wonderful Wizard of Oz is a 1900 children's novel written by author L. Frank Baum and illustrated by W. W. Denslow. It is the first novel in the Oz series of books. A Kansas farm girl named Dorothy ends up in the magical Land of Oz after she and her pet dog Toto are swept away from their home by a tornado.</Text>
+          <Text style={{fontSize: 16}} numberOfLines={13}>{description}</Text>
         </View>
         <BooksList title="Related Books" BookData={BookData} />
       </ScrollView>

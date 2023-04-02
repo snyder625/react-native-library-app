@@ -14,7 +14,7 @@ function BooksList({title, BookData}) {
   const navigation = useNavigation()
 
   const handleCardPress = (item) => {
-    navigation.navigate('Book Detail', {id: item.id});
+    navigation.navigate('Book Detail', {id: item.book_id});
   };
 
   return (
