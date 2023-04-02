@@ -1,11 +1,13 @@
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, StatusBar, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, StatusBar, SafeAreaView, TextInput } from 'react-native'
 import React from 'react'
 import Head from '../components/Head'
 import BooksList from '../components/BooksList'
 import BookData from '../Data'
-import Lottie from 'lottie-react-native';
+import LottieView from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native'
 
 import BookCard from '../components/BookCard'
+import { ScrollView } from 'react-native'
 
 const Home = () => {
   return (
@@ -13,34 +15,38 @@ const Home = () => {
       <StatusBar
       backgroundColor="#ddd"
     />
-      <View style={{flex: 1}}>
-        <Lottie source={require('../assets/99349-girl-with-books.json')} autoPlay loop />
+    <ScrollView>
+    {/* <View style={{backgroundColor: 'red'}}> */}
+      <View style={{height: 275, backgroundColor: '#ddd', alignItems: 'center', justifyContent: 'center', paddingTop: 10, marginBottom: 30}}>
+        <LottieView source={require('../assets/99349-girl-with-books.json')} autoPlay loop style={{height: '95%'}} />
+        <View style={styles.searchWrapper}>
+          <TextInput style={styles.searchInput} placeholder="What are you looking for?" />
+        </View>  
       </View>
-      <Head />
+      {/* </View> */}
+      {/* <Head /> */}
       <BooksList title="Horror" BookData={BookData} />
+      <BooksList title="Horror" BookData={BookData} />
+      <BooksList title="Horror" BookData={BookData} />
+      </ScrollView>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 15,
+  searchWrapper: {
+    width: "100%",
+    height: 50,
+    marginBottom: -16,
+    paddingHorizontal: 42,
+    justifyContent: "center",
   },
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 18
+  searchInput: {
+    backgroundColor: '#fff',
+    height: "100%",
+    paddingHorizontal: 16,
+    borderRadius: 24,
   },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  headerBtn: {
-    fontSize: 16,
-    padding: 4,
-    color: '#aaa'
-  }
 })
 
 export default Home
