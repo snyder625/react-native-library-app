@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 import BookData from '../Data'
+import { useRoute } from '@react-navigation/native'
 
 import Cover from '../components/Cover'
 import Tabs from '../components/Tabs'
@@ -9,6 +10,8 @@ import BooksList from '../components/BooksList'
 import { ScrollView } from 'react-native'
 
 const BookDetail = () => {
+
+  const route = useRoute()
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView>

@@ -6,9 +6,17 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import BookCard from "./BookCard";
 
 function BooksList({title, BookData}) {
+
+  const navigation = useNavigation()
+
+  const handleCardPress = (item) => {
+    navigation.navigate('Book Detail', {id: item.id});
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -21,7 +29,7 @@ function BooksList({title, BookData}) {
       <FlatList 
         data={BookData}
         renderItem={({item}) =>(
-          <BookCard name={item.name} cover={item.cover} />
+          <BookCard item={item} handleCardPress={handleCardPress} />
         )}
         horizontal
         showsHorizontalScrollIndicator={false}

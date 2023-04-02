@@ -9,20 +9,13 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-function BookCard({name, cover}) {
-
-  const navigation = useNavigation()
-
-  function handlePress() {
-      navigation.navigate('Book Detail')
-  }
-
+function BookCard({item, handleCardPress}) {
   return (
     <View style={styles.container}>
-        <TouchableOpacity onPress={handlePress}>
-            <Image source={{uri: cover}} style={styles.image} />
+        <TouchableOpacity onPress={() => handleCardPress(item)}>
+            <Image source={{uri: item.cover}} style={styles.image} />
         </TouchableOpacity>
-        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>{item.name}</Text>
     </View>
   );
 }
