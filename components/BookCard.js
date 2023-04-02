@@ -1,5 +1,5 @@
 import React from "react";
-import BookData from '../Data'
+import BookData from '../Data/BookData'
 import {
   Image,
   StyleSheet,

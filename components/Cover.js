@@ -3,7 +3,7 @@ import { Image, ImageBackground, StyleSheet, Text, View, Dimensions, TouchableOp
 
 const { height } = Dimensions.get('window');
 
-function Cover({cover, name, author}) {
+function Cover({cover, title, author}) {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -20,7 +20,7 @@ function Cover({cover, name, author}) {
             style={{ width: 150, height: 200, borderRadius: 6 }}
           />
           <View style={styles.textContainer}>
-            <Text style={styles.title}>{name}</Text>
+            <Text style={styles.title}>{title}</Text>
             <Text style={styles.subTitle}>by {author}</Text>
           </View>
         </View>

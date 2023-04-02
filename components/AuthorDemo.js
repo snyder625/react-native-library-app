@@ -1,15 +1,17 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import AuthorData from '../Data/AuthorData'
 
-function AuthorDemo({author, authorDescription, authorImage}) {
+function AuthorDemo({authorId}) {
+  const {name, about, imageUrl} = AuthorData[authorId];
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: authorImage }}
+        source={{ uri: imageUrl }}
         style={styles.image}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{author}</Text>
-        <Text numberOfLines={2} style={styles.subtitle}>{authorDescription}</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text numberOfLines={2} style={styles.subtitle}>{about}</Text>
       </View>
     </View>
   );
