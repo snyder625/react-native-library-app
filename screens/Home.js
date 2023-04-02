@@ -9,7 +9,12 @@ import { useNavigation } from '@react-navigation/native'
 import BookCard from '../components/BookCard'
 import { ScrollView } from 'react-native'
 
-const Home = () => {
+const Home = ({navigation}) => {
+
+  function handleTextChange(text) {
+    navigation.navigate('Search', {text: text})
+  }
+
   return (
     <SafeAreaView>
       <StatusBar
@@ -20,7 +25,7 @@ const Home = () => {
       <View style={{height: 275, backgroundColor: '#ddd', alignItems: 'center', justifyContent: 'center', paddingTop: 10, marginBottom: 30}}>
         <LottieView source={require('../assets/99349-girl-with-books.json')} autoPlay loop style={{height: '95%'}} />
         <View style={styles.searchWrapper}>
-          <TextInput style={styles.searchInput} placeholder="What are you looking for?" />
+          <TextInput style={styles.searchInput} placeholder="What are you looking for?" onChangeText={handleTextChange} />
         </View>  
       </View>
       {/* </View> */}
