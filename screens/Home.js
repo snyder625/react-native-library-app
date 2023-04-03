@@ -1,13 +1,9 @@
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, StatusBar, SafeAreaView, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, StatusBar, SafeAreaView, TextInput, ScrollView } from 'react-native'
 import React from 'react'
 import Head from '../components/Head'
 import BooksList from '../components/BooksList'
 import BookData from '../Data/BookData'
 import LottieView from 'lottie-react-native';
-import { useNavigation } from '@react-navigation/native'
-
-import BookCard from '../components/BookCard'
-import { ScrollView } from 'react-native'
 
 const Home = ({navigation}) => {
 

@@ -6,16 +6,20 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
+import AuthorData from "../Data/AuthorData";
 
-function Card() {
+function Card({item, handleCardPress}) {
+
+  const {name} = AuthorData[item.authorId];
+  
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.wrapper}>
-            <Image source={{uri: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1674683360l/61273863.jpg"}} style={styles.image} />
+        <TouchableOpacity style={styles.wrapper} onPress={() => handleCardPress(item)}>
+            <Image source={{uri: item.cover}} style={styles.image} />
             <View style={styles.textContainer}>
-              <Text>Horror</Text>
-              <Text style={styles.text}>The House Across the Lake</Text>
-              <Text>Harry Maguire</Text>
+              <Text>{item.genre}</Text>
+              <Text style={styles.text}>{item.title}</Text>
+              <Text>{name}</Text>
               <Text>Ratings</Text>
             </View>
         </TouchableOpacity>
@@ -25,7 +29,6 @@ function Card() {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'red',
     padding: 12,
   },
   wrapper: {

@@ -1,12 +1,6 @@
 import React from "react";
 import BookData from '../Data/BookData'
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from "react-native";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 function BookCard({item, handleCardPress}) {
@@ -15,7 +9,7 @@ function BookCard({item, handleCardPress}) {
         <TouchableOpacity onPress={() => handleCardPress(item)}>
             <Image source={{uri: item.cover}} style={styles.image} />
         </TouchableOpacity>
-        <Text style={styles.text}>{item.name}</Text>
+        <Text style={styles.text}>{item.title}</Text>
     </View>
   );
 }

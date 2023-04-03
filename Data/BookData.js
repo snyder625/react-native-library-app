@@ -21,7 +21,7 @@ const BookData = [
         rating: '3.58',
         pages: '368',
         status: 'Reading',
-        genre: ''
+        genre: 'Comedy'
     },
     {
         book_id: '2',
@@ -33,7 +33,7 @@ const BookData = [
         rating: '3.62',
         pages: '330',
         status: 'Wishlist',
-        genre: ''
+        genre: 'Thriller'
     },
     {
         book_id: '3',
@@ -45,7 +45,7 @@ const BookData = [
         rating: '4.22',
         pages: '286',
         status: 'Completed',
-        genre: ''
+        genre: 'Horror'
     },
     {
         book_id: '4',

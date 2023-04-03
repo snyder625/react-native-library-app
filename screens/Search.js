@@ -1,29 +1,33 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TextInput, FlatList } from 'react-native'
 import React, { useState } from 'react'
-import { TextInput } from 'react-native'
 import BookData from '../Data/BookData'
-import { PreventRemoveContext } from '@react-navigation/native';
-import { StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
-export default function Search({route}) {
+import SearchBar from '../components/SearchBar'
+import Card from '../components/HorizontalCard'
+
+export default function Search({route, navigation}) {
   const [searchTerm, setSearchTerm] = useState(route.params.text);
   const [data, setData] = useState([])
 
-  function handleChangeText(text) {}
+  const handleCardPress = (item) => {
+    navigation.navigate('Book Detail', {id: item.book_id});
+  };
 
   return (
-    <View style={styles.container}>
-      <TextInput value={searchTerm} onChangeText={handleChangeText} style={styles.TextInput} />
-      <Text>Done</Text>
-    </View>
+    <SafeAreaView>
+      <StatusBar />
+      <SearchBar />
+      <FlatList 
+        data={BookData}
+        renderItem={({item}) =>(
+          <Card item={item} handleCardPress={handleCardPress}  />
+        )}
+        showsVerticalScrollIndicator={false}
+      />
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height: 50
-  },
-  TextInput: {
-    height: '100%'
-  }
 })

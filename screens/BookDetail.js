@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 import BookData from '../Data/BookData'
 import AuthorData from '../Data/AuthorData'
@@ -7,11 +7,10 @@ import Cover from '../components/Cover'
 import Tabs from '../components/Tabs'
 import AuthorDemo from '../components/AuthorDemo'
 import BooksList from '../components/BooksList'
-import { ScrollView } from 'react-native'
 
 const BookDetail = ({route}) => {
 
-  const {id} = route.params;
+  const { id } = route.params;
   const {title, cover, authorId, description, rating, pages, status} = BookData[id];
   const {name} = AuthorData[authorId];
 
