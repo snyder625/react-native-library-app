@@ -1,17 +1,15 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import AuthorData from '../Data/AuthorData'
 
-function AuthorDemo({authorId}) {
-  const {name, about, imageUrl} = AuthorData[authorId];
+function AuthorDemo({name, description, image}) {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: imageUrl }}
+        source={{ uri: image }}
         style={styles.image}
       />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{name}</Text>
-        <Text numberOfLines={2} style={styles.subtitle}>{about}</Text>
+        <Text numberOfLines={2} style={styles.subtitle}>{description}</Text>
       </View>
     </View>
   );
@@ -23,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 12,
     paddingLeft: 16,
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
   },
   textContainer: {
     paddingHorizontal: 12,

@@ -1,26 +1,25 @@
 import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from "react-native";
-import AuthorData from "../Data/AuthorData";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 function Card({item, handleCardPress}) {
 
-  const {name} = AuthorData[item.authorId];
+  const genres = ['Horror', 'Fiction', 'Comedy', 'Romance', 'Non-Fiction', 'Fantasy', 'Mystery'];
+  const colors = ['#990000', '#008080', '#FFD700', '#FF69B4', '#FFA500', '#663300', '#333333'];
+  const index = genres.indexOf(item.genre)
+
+  const textStyle = {
+    color: colors[index]
+  };
   
   return (
     <View style={styles.container}>
         <TouchableOpacity style={styles.wrapper} onPress={() => handleCardPress(item)}>
-            <Image source={{uri: item.cover}} style={styles.image} />
+            <Image source={{uri: item.cover}} style={styles.image} resizeMode="contain" />
             <View style={styles.textContainer}>
-              <Text>{item.genre}</Text>
+              <Text style={textStyle}>{item.genre}</Text>
               <Text style={styles.text}>{item.title}</Text>
-              <Text>{name}</Text>
-              <Text>Ratings</Text>
+              <Text>{item.author}</Text>
+              <Text>{item.rating}</Text>
             </View>
         </TouchableOpacity>
     </View>
@@ -50,9 +49,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     maxWidth: 175,
     // color: 'grey',
-  },
-  code: {
-    fontFamily: "monospace, monospace"
   }
 })
 

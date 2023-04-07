@@ -1,34 +1,32 @@
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, StatusBar, SafeAreaView, TextInput, ScrollView } from 'react-native'
-import React from 'react'
-import Head from '../components/Head'
+import { View, StyleSheet, StatusBar, SafeAreaView, TextInput, ScrollView } from 'react-native'
+import React, { useState } from 'react'
 import BooksList from '../components/BooksList'
-import BookData from '../Data/BookData'
 import LottieView from 'lottie-react-native';
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
   function handleTextChange(text) {
-    navigation.navigate('Search', {text: text})
+    setSearchTerm("");
+    navigation.navigate('Search', { text: text })
   }
 
   return (
     <SafeAreaView>
-      <StatusBar
-      backgroundColor="#ddd"
-    />
-    <ScrollView>
-    {/* <View style={{backgroundColor: 'red'}}> */}
-      <View style={{height: 275, backgroundColor: '#ddd', alignItems: 'center', justifyContent: 'center', paddingTop: 10, marginBottom: 30}}>
-        <LottieView source={require('../assets/99349-girl-with-books.json')} autoPlay loop style={{height: '95%'}} />
-        <View style={styles.searchWrapper}>
-          <TextInput style={styles.searchInput} placeholder="What are you looking for?" onChangeText={handleTextChange} />
-        </View>  
-      </View>
-      {/* </View> */}
-      {/* <Head /> */}
-      <BooksList title="Completed" BookData={BookData} />
-      <BooksList title="Reading" BookData={BookData} />
-      <BooksList title="Wishlist" BookData={BookData} />
+      <StatusBar backgroundColor="#ddd" />
+      <ScrollView>
+        {/* <View style={{backgroundColor: 'red'}}> */}
+        <View style={{ height: 275, backgroundColor: '#ddd', alignItems: 'center', justifyContent: 'center', paddingTop: 10, marginBottom: 30 }}>
+          <LottieView source={require('../assets/99349-girl-with-books.json')} autoPlay loop style={{ height: '95%' }} />
+          <View style={styles.searchWrapper}>
+            <TextInput style={styles.searchInput} placeholder="What are you looking for?" onChangeText={handleTextChange} value={searchTerm} />
+          </View>
+        </View>
+        {/* </View> */}
+        {/* <Head /> */}
+        <BooksList title="Books" type="Book" />
+        <BooksList title="Comics" type="Comic" />
+        <BooksList title="Novels" type="Novel" />
       </ScrollView>
     </SafeAreaView>
   )

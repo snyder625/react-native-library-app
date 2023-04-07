@@ -1,23 +1,27 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View, Dimensions, TouchableOpacity } from "react-native";
 
 const { height } = Dimensions.get('window');
 
 function Cover({cover, title, author}) {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <View>
       <ImageBackground
         source={{ uri: cover }}
         resizeMode="cover"
         style={styles.backgroundImage}
         blurRadius={40}
       >
-        <TouchableOpacity style={styles.backBtn}>
-        <Image source={require('../assets/icons/left.png')} style={{width: '100%', height: '100%'}} />
+        <TouchableOpacity style={styles.backBtn} onPress={() => navigation.navigate("Home")}>
+          <Image source={require('../assets/icons/left.png')} style={{width: '100%', height: '100%'}} />
         </TouchableOpacity>
         <View style={ styles.wrapper }>
           <Image source={{ uri: cover }}
             style={{ width: 150, height: 200, borderRadius: 6 }}
+            resizeMode="contain"
           />
           <View style={styles.textContainer}>
             <Text style={styles.title}>{title}</Text>
@@ -47,16 +51,19 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   textContainer: {
-    alignItems: "center", 
+    alignItems: "center",
     paddingTop: 8
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: '#C70039'
+    color: '#FFFFFF',
+    maxWidth: 330,
+    // color: '#C70039'
   },
   subTitle: {
-    color: '#eee'
+    // color: '#eee'
+    color: 'gold'
   }
 })
 
