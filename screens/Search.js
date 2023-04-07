@@ -47,7 +47,7 @@ export default function Search({ route, navigation }) {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            placeholder="What are you looking for?"
+            placeholder="What book are you looking for today?"
             onChangeText={(text) => {
               setSearchQuery(text);
               handleSearch(text);

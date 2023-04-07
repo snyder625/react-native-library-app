@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
         <View style={{ height: 275, backgroundColor: '#ddd', alignItems: 'center', justifyContent: 'center', paddingTop: 10, marginBottom: 30 }}>
           <LottieView source={require('../assets/99349-girl-with-books.json')} autoPlay loop style={{ height: '95%' }} />
           <View style={styles.searchWrapper}>
-            <TextInput style={styles.searchInput} placeholder="What are you looking for?" onChangeText={handleTextChange} value={searchTerm} />
+            <TextInput style={styles.searchInput} placeholder="What book are you looking for today?" onChangeText={handleTextChange} value={searchTerm} />
           </View>
         </View>
         {/* </View> */}

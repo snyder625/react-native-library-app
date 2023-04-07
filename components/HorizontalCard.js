@@ -3,8 +3,8 @@ import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 function Card({item, handleCardPress}) {
 
-  const genres = ['Horror', 'Fiction', 'Comedy', 'Romance', 'Non-Fiction', 'Fantasy', 'Mystery'];
-  const colors = ['#990000', '#008080', '#FFD700', '#FF69B4', '#FFA500', '#663300', '#333333'];
+  const genres = ['Horror', 'Fiction', 'Comedy', 'Romance', 'Non-Fiction', 'Fantasy', 'Mystery', 'Sports'];
+  const colors = ['#990000', '#008080', '#FFD700', '#FF69B4', '#FFA500', '#663300', '#333333', '#008000'];
   const index = genres.indexOf(item.genre)
 
   const textStyle = {
@@ -19,7 +19,7 @@ function Card({item, handleCardPress}) {
               <Text style={textStyle}>{item.genre}</Text>
               <Text style={styles.text}>{item.title}</Text>
               <Text>{item.author}</Text>
-              <Text>{item.rating}</Text>
+              <Text style={{paddingTop: 6}}>{item.rating}</Text>
             </View>
         </TouchableOpacity>
     </View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    paddingVertical: 6,
+    paddingTop: 6,
     fontWeight: 'bold',
     maxWidth: 175,
     // color: 'grey',
