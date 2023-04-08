@@ -15,15 +15,14 @@ const Home = ({ navigation }) => {
     <SafeAreaView>
       <StatusBar backgroundColor="#ddd" />
       <ScrollView>
-        {/* <View style={{backgroundColor: 'red'}}> */}
+
         <View style={{ height: 275, backgroundColor: '#ddd', alignItems: 'center', justifyContent: 'center', paddingTop: 10, marginBottom: 30 }}>
           <LottieView source={require('../assets/99349-girl-with-books.json')} autoPlay loop style={{ height: '95%' }} />
           <View style={styles.searchWrapper}>
             <TextInput style={styles.searchInput} placeholder="What book are you looking for today?" onChangeText={handleTextChange} value={searchTerm} />
           </View>
         </View>
-        {/* </View> */}
-        {/* <Head /> */}
+
         <BooksList title="Books" type="Book" />
         <BooksList title="Comics" type="Comic" />
         <BooksList title="Novels" type="Novel" />

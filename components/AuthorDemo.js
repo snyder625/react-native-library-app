@@ -1,15 +1,32 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
 
-function AuthorDemo({name, description, image}) {
+function AuthorDemo({authorId}) {
+
+  const [author, setAuthor] = useState([]);
+
+  useEffect(()=> {
+    const fetchData = async () => {
+      try {
+          const response = await fetch(`https://library-app-backend-six.vercel.app/author/${authorId}`);
+          const jsonData = await response.json();
+          setAuthor(jsonData)
+      } catch (error) {
+          alert('There is an error')
+      }
+  };
+  fetchData();
+  }, [authorId]);
+
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: image }}
+        source={{ uri: author.image }}
         style={styles.image}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{name}</Text>
-        <Text numberOfLines={2} style={styles.subtitle}>{description}</Text>
+        <Text style={styles.title}>{author.name}</Text>
+        <Text numberOfLines={2} style={styles.subtitle}>{author.description}</Text>
       </View>
     </View>
   );

@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StyleSheet, TextInput, FlatList, TouchableOpacity, Image } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import axios from "axios";
 import { Dimensions } from "react-native";

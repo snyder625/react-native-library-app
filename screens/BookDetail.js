@@ -1,7 +1,5 @@
-import { View, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { Platform, NativeModules } from 'react-native';
-const { StatusBarManager } = NativeModules;
 
 import Cover from '../components/Cover'
 import Tabs from '../components/Tabs'
@@ -12,20 +10,17 @@ const BookDetail = ({route}) => {
 
   const { id } = route.params;
   const [book, setBook] = useState([]);
-  const [author, setAuthor] = useState([]);
   const [text, setText] = useState("");
   const [readMore, setReadMore] = useState(false);
 
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response1 = await fetch(`https://library-app-backend-six.vercel.app/book/${id}`);
-        const json1 = await response1.json();
-        setBook(json1);
-        setText(json1.description.slice(0, 500));
-        const response2 = await fetch(`https://library-app-backend-six.vercel.app/author/${json1.authorId}`);
-        const json2 = await response2.json();
-        setAuthor(json2);
+        const response = await fetch(`https://library-app-backend-six.vercel.app/book/${id}`);
+        const jsonData = await response.json();
+        setBook(jsonData);
+        setText(jsonData.description.slice(0, 500));
       } catch (error) {
         console.error(error);
       }
@@ -38,7 +33,7 @@ const BookDetail = ({route}) => {
       <ScrollView>
         <Cover cover={book.cover} title={book.title} author={book.author} />
         <Tabs rating={book.rating} pages={book.pages} genre={book.genre}/>
-        <AuthorDemo name={author.name} description={author.description} image={author.image} />
+        <AuthorDemo authorId={book.authorId} />
 
         <View style={{ padding: 16, paddingTop: 10, backgroundColor: '#eee' }}>
           <Text style={{ fontSize: 16 }} >

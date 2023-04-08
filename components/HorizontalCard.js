@@ -1,5 +1,5 @@
-import React from "react";
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import  Rating from 'react-native-easy-rating';
 
 function Card({item, handleCardPress}) {
 
@@ -19,7 +19,17 @@ function Card({item, handleCardPress}) {
               <Text style={textStyle}>{item.genre}</Text>
               <Text style={styles.text}>{item.title}</Text>
               <Text>{item.author}</Text>
-              <Text style={{paddingTop: 6}}>{item.rating}</Text>
+              <View style={{backgroundColor: 'pink'}}>
+              <Rating
+                rating={item.rating}
+                max={5}
+                iconWidth={24}
+                iconHeight={24}
+                iconSelected={'https://cdn.pixabay.com/photo/2021/10/11/00/58/star-6699069_960_720.png'}
+                iconUnselected={'https://cdn.pixabay.com/photo/2015/01/17/11/45/star-602148_960_720.png'}
+                editable={false}
+              />
+              </View>
             </View>
         </TouchableOpacity>
     </View>

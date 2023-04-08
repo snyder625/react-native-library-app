@@ -1,13 +1,8 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 function Tabs({rating, pages, genre}) {
-  const genres = ['Horror', 'Fiction', 'Comedy', 'Romance', 'Non-Fiction', 'Fantasy', 'Mystery'];
-  const colors = ['#990000', '#008080', '#FFD700', '#FF69B4', '#FFA500', '#663300', '#333333'];
+  const genres = ['Horror', 'Fiction', 'Comedy', 'Romance', 'Non-Fiction', 'Fantasy', 'Mystery', 'Sports'];
+  const colors = ['#990000', '#008080', '#FFD700', '#FF69B4', '#FFA500', '#663300', '#333333', '#008000'];
   const index = genres.indexOf(genre)
 
   const textStyle = {
