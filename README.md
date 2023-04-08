@@ -1,8 +1,6 @@
 ## React Native Library App
 
-<img src="https://github.com/snyder625/react-native-library-app/blob/main/book.gif" width="33%">
-<img src="https://github.com/snyder625/react-native-library-app/blob/main/dbook.gif" width="33%">
-<img src="https://github.com/snyder625/react-native-library-app/blob/main/sbook.gif" width="33%">
+![](book.gif) ![](dbook.gif) ![](sbook.gif)
 
 
 ### Code Structure
