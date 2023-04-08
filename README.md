@@ -1,6 +1,6 @@
 ## React Native Library App
 
-<img src="https://github.com/snyder625/react-native-library-app/blob/main/book.gif" width="48">
+<img src="https://github.com/snyder625/react-native-library-app/blob/main/book.gif" width="148">
 <img src="https://github.com/snyder625/react-native-library-app/blob/main/dbook.gif" width="48">
 <img src="https://github.com/snyder625/react-native-library-app/blob/main/sbook.gif" width="48">
 
