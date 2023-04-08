@@ -2,7 +2,6 @@ import { View, Text, SafeAreaView, StyleSheet, TextInput, FlatList, TouchableOpa
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import axios from "axios";
-import { Dimensions } from "react-native";
 
 import Card from "../components/HorizontalCard";
 
@@ -10,11 +9,14 @@ export default function Search({ route, navigation }) {
   const [searchQuery, setSearchQuery] = useState(route.params.text);
   const [BookData, setBookData] = useState([]);
 
-  const { width, height } = Dimensions.get('window')
-
   const handleCardPress = (item) => {
     navigation.navigate("Book Detail", { id: item._id });
   };
+
+  function handlePress() {
+    setSearchQuery("");
+    setBookData([]);
+  }
 
   const handleSearch = async (query) => {
     try {
@@ -59,21 +61,11 @@ export default function Search({ route, navigation }) {
 
         <TouchableOpacity
           style={styles.searchBtn}
-          onPress={() => setSearchQuery("")}
+          onPress={handlePress}
         >
           <Text style={{ color: "black", fontSize: 16 }}>Clear</Text>
         </TouchableOpacity>
-      </View>
-
-      {searchQuery === "" ? (
-        <View style={{ width: width, height: height - 100, marginTop: 40}}>
-          <Image
-            source={require("../images/books.png")}
-            resizeMode="cover"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </View>
-      ) : (
+      </View>     
         <FlatList
           data={BookData}
           renderItem={({ item }) => (
@@ -82,7 +74,6 @@ export default function Search({ route, navigation }) {
           keyExtractor={(item) => item._id}
           ListFooterComponent={<View style={{ height: 75 }} />}
         />
-      )}
     </SafeAreaView>
   );
 }

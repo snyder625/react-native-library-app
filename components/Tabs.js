@@ -21,7 +21,7 @@ function Tabs({rating, pages, genre}) {
             <Text style={styles.subTitle}>{pages}</Text>
           </View>
           <View style={styles.section}>
-            <Text style={styles.title}>CATEGORY</Text>
+            <Text style={styles.title}>GENRE</Text>
             <Text style={[styles.subTitle, textStyle]}>{genre}</Text>
           </View>
         </View>

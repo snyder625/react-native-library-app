@@ -1,5 +1,4 @@
-import { Image, ImageBackground, StyleSheet, Text, View, Dimensions, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Image, ImageBackground, StyleSheet, Text, View, Dimensions } from "react-native";
 
 const { height } = Dimensions.get('window');
 
@@ -11,11 +10,8 @@ function Cover({cover, title, author}) {
         source={{ uri: cover }}
         resizeMode="cover"
         style={styles.backgroundImage}
-        blurRadius={10}
+        blurRadius={20}
       >
-        {/* <TouchableOpacity style={styles.backBtn} onPress={handlePress}>
-          <Image source={require('../assets/icons/left.png')} style={{width: '100%', height: '100%'}} />
-        </TouchableOpacity> */}
         <View style={ styles.wrapper }>
           <Image source={{ uri: cover }}
             style={{ width: 150, height: 200, borderRadius: 6 }}
@@ -59,10 +55,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: "center",
     maxWidth: 330,
-    // color: '#C70039'
   },
   subTitle: {
-    // color: '#eee'
     color: 'gold'
   }
 })

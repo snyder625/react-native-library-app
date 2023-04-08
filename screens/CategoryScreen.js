@@ -27,6 +27,6 @@ export default function CategoriesScreen({ route, navigation }) {
   }
 
   return (
-    <FlatList data={books} keyExtractor={(item)=> item._id} renderItem={({item}) => <BookCard item={item} handleCardPress={handleCardPress}/>} numColumns={2}/>
+    <FlatList data={books} keyExtractor={(item)=> item._id} renderItem={({item}) => <BookCard item={item} handleCardPress={handleCardPress}/>} numColumns={2} ListFooterComponent={<View style={{ height: 20 }} />}/>
   )
 }
